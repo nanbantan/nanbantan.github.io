@@ -2,7 +2,10 @@
  * Variables used throughout the theme.
  * To adjust anything, simply edit the variables below and rebuild the theme.
  ******************************************************************************/
-
+// Carnival palette
+$carnival-blue: #26547c !default;
+$carnival-pink: #ef476f !default;
+$carnival-yellow: #ffd166 !default;
 @use "sass:color";
 
 // Colors
