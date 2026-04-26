@@ -29,8 +29,8 @@ body {
 
 /* Photo */
 .carnival-photo-wrap {
-  width: 100px !important;
-  height: 100px !important;
+  width: 200px !important;
+  height: 200px !important;
   border-radius: 50% !important;
   overflow: hidden !important;
   border: 2px solid rgba(38, 84, 124, 0.2) !important;
@@ -42,9 +42,9 @@ body {
 .carnival-photo-wrap img,
 .carnival-photo-wrap figure,
 .carnival-photo-wrap .img-fluid {
-  width: 100px !important;
-  height: 100px !important;
-  max-width: 100px !important;
+  width: 200px !important;
+  height: 200px !important;
+  max-width: 200px !important;
   object-fit: cover !important;
   border-radius: 50% !important;
   margin: 0 !important;
