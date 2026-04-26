@@ -1,0 +1,366 @@
+/* =============================================================================
+   Carnival Theme — Custom overrides for al-folio
+   Palette: #26547c (steel blue), #ef476f (hot pink), #ffd166 (golden yellow)
+   Font: Rubik
+   ============================================================================= */
+
+/* Background */
+body {
+  background-color: #eef4fa !important;
+  background-image: linear-gradient(135deg, #eef4fa 0%, #fffbf0 100%) !important;
+}
+
+/* ── Hero ── */
+.carnival-hero {
+  position: relative;
+  z-index: 2;
+}
+
+.carnival-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 52px 28px 40px;
+  gap: 14px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+/* Photo */
+.carnival-photo-wrap {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(38, 84, 124, 0.2);
+  background: rgba(255,255,255,0.6);
+  flex-shrink: 0;
+}
+
+.carnival-photo {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  border-radius: 50% !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Name */
+.carnival-name {
+  font-size: 22px !important;
+  font-weight: 500 !important;
+  color: #0d1f30 !important;
+  margin-bottom: 2px !important;
+  line-height: 1.3 !important;
+  border-bottom: none !important;
+}
+
+.carnival-phd-badge {
+  display: inline-block;
+  font-size: 10px;
+  padding: 2px 10px;
+  border-radius: 99px;
+  background: #ffd166;
+  color: #7a5000;
+  margin-left: 8px;
+  vertical-align: middle;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.carnival-subtitle {
+  font-size: 12px !important;
+  color: #26547c !important;
+  margin-bottom: 0 !important;
+  margin-top: 2px !important;
+}
+
+/* Bio */
+.carnival-bio {
+  font-size: 13px;
+  line-height: 1.85;
+  color: #1a2e3f;
+  max-width: 460px;
+}
+
+.carnival-bio p {
+  margin-bottom: 0;
+}
+
+.carnival-bio strong {
+  color: #ef476f;
+  font-weight: 500;
+}
+
+/* Links row */
+.carnival-links {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.carnival-pill-outline {
+  font-size: 11px;
+  padding: 5px 14px;
+  border-radius: 99px;
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(38,84,124,0.28);
+  color: #26547c;
+  text-decoration: none;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.carnival-pill-outline:hover {
+  background: rgba(255,255,255,0.9);
+  border-color: rgba(38,84,124,0.5);
+  color: #26547c;
+  text-decoration: none;
+}
+
+.carnival-pill-solid {
+  font-size: 11px;
+  padding: 5px 14px;
+  border-radius: 99px;
+  background: #ef476f;
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.carnival-pill-solid:hover {
+  background: #d63d62;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Divider */
+.carnival-divider {
+  border: none;
+  border-top: 0.5px solid rgba(38, 84, 124, 0.14);
+  margin: 0 28px;
+}
+
+/* Body sections */
+.carnival-body {
+  position: relative;
+  z-index: 2;
+  padding: 0 28px;
+  max-width: 930px;
+  margin: 0 auto;
+}
+
+.carnival-section {
+  padding: 2rem 0;
+  border-bottom: 0.5px solid rgba(38, 84, 124, 0.09);
+}
+
+.carnival-section:last-child {
+  border-bottom: none;
+}
+
+.carnival-sec-head {
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.09em !important;
+  color: #ef476f !important;
+  margin-bottom: 1.25rem !important;
+  border-bottom: none !important;
+}
+
+/* ── Navbar overrides ── */
+.navbar {
+  background-color: rgba(238, 244, 250, 0.92) !important;
+  backdrop-filter: blur(10px) !important;
+  border-bottom: 0.5px solid rgba(38, 84, 124, 0.12) !important;
+  position: relative;
+  z-index: 10;
+}
+
+.navbar-brand {
+  color: #26547c !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+}
+
+.navbar-brand:hover {
+  color: #ef476f !important;
+}
+
+.nav-link {
+  color: #555 !important;
+  font-size: 12px !important;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #26547c !important;
+}
+
+/* ── Page sections (publications, teaching, talks etc.) ── */
+.post {
+  position: relative;
+  z-index: 2;
+}
+
+.post-title {
+  font-size: 22px !important;
+  font-weight: 500 !important;
+  color: #0d1f30 !important;
+  border-bottom: none !important;
+}
+
+h2.post-title,
+h1.post-title {
+  color: #0d1f30 !important;
+}
+
+/* Section headers on inner pages */
+.post h2 {
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.09em !important;
+  color: #ef476f !important;
+  border-bottom: 0.5px solid rgba(38,84,124,0.1) !important;
+  padding-bottom: 8px !important;
+  margin-top: 2rem !important;
+}
+
+/* Publication entries */
+.bibliography {
+  position: relative;
+  z-index: 2;
+}
+
+.bibliography li {
+  border-bottom: 0.5px solid rgba(38,84,124,0.07);
+  padding: 12px 0;
+  list-style: none;
+}
+
+.bibliography .title {
+  font-weight: 500;
+  color: #0d1f30;
+}
+
+.bibliography .author {
+  color: #555;
+  font-size: 12px;
+}
+
+.bibliography .periodical {
+  color: #888;
+  font-style: italic;
+  font-size: 12px;
+}
+
+/* Links */
+a {
+  color: #26547c;
+}
+
+a:hover {
+  color: #ef476f;
+}
+
+/* Footer */
+footer {
+  background-color: #26547c !important;
+  color: rgba(255,255,255,0.85) !important;
+  position: relative;
+  z-index: 2;
+}
+
+footer a {
+  color: #ffd166 !important;
+}
+
+footer a:hover {
+  color: #fff !important;
+}
+
+/* Back to top button */
+#back-to-top {
+  background: #26547c !important;
+  color: #fff !important;
+  z-index: 5;
+}
+
+/* Container z-index */
+.container.mt-5 {
+  position: relative;
+  z-index: 2;
+}
+
+/* Teaching page */
+.teaching-entry {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  padding: 10px 0;
+  border-bottom: 0.5px solid rgba(38,84,124,0.07);
+  align-items: start;
+}
+
+.teaching-entry:last-child {
+  border-bottom: none;
+}
+
+.teaching-course {
+  font-size: 13px;
+  font-weight: 500;
+  color: #0d1f30;
+}
+
+.teaching-role {
+  font-size: 12px;
+  color: #555;
+  margin-top: 2px;
+}
+
+.teaching-sem {
+  font-size: 11px;
+  color: #999;
+  white-space: nowrap;
+}
+
+/* Talks page */
+.talk-entry {
+  padding: 10px 0;
+  border-bottom: 0.5px solid rgba(38,84,124,0.07);
+}
+
+.talk-entry:last-child {
+  border-bottom: none;
+}
+
+.talk-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: #0d1f30;
+}
+
+.talk-meta {
+  font-size: 12px;
+  color: #555;
+  margin-top: 2px;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .carnival-hero-inner {
+    padding: 36px 16px 28px;
+  }
+  .carnival-divider {
+    margin: 0 16px;
+  }
+  .carnival-body {
+    padding: 0 16px;
+  }
+}
