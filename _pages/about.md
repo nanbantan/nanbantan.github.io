@@ -41,7 +41,7 @@ I study **adoption, diffusion, and impact in scientific communities** using cita
 
     <div class="carnival-proj-card">
       <div class="carnival-proj-title">Gen AI & social science</div>
-      <div class="carnival-proj-dot carnival-proj-dot-done"></div>
+      <div class="carnival-proj-dot carnival-proj-dot"></div>
       <div class="carnival-proj-desc">Characterizing how LLMs are influencing research practices, citations, and output in the social sciences.</div>
     </div>
 
