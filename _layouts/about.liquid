@@ -1,80 +1,96 @@
 ---
 layout: default
 ---
-<div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {% if site.title == 'blank' %}
-        <span class="font-weight-bold">{{ site.first_name }}</span> {{ site.middle_name }}
-        {{ site.last_name }}
-      {% else %}
-        {{ site.title }}
-      {% endif %}
-    </h1>
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
 
-  <article>
+<div class="carnival-hero">
+  <!-- Centered hero section -->
+  <div class="carnival-hero-inner">
+
     {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
+      {% if page.profile.image %}
+        {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+        <div class="carnival-photo-wrap">
           {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
+            include figure.liquid
+            loading="eager"
+            path=profile_image_path
+            class="carnival-photo"
+            alt=page.profile.image
             cache_bust=true
           %}
+        </div>
+      {% endif %}
+    {% endif %}
+
+    <div class="carnival-name-block">
+      <h1 class="carnival-name">
+        {% if site.title == 'blank' %}
+          {{ site.first_name }} {% if site.middle_name %}{{ site.middle_name }} {% endif %}{{ site.last_name }}
+        {% else %}
+          {{ site.title }}
         {% endif %}
-        {% if page.profile.more_info %}
-          <div class="more-info">{{ page.profile.more_info }}</div>
-        {% endif %}
-      </div>
-    {% endif %}
+        <span class="carnival-phd-badge" id="phd-year-badge">PhD Student</span>
+      </h1>
+      {% if page.subtitle %}
+        <p class="carnival-subtitle">{{ page.subtitle }}</p>
+      {% endif %}
+    </div>
 
-    <div class="clearfix">{{ content }}</div>
+    <div class="carnival-bio">
+      {{ content }}
+    </div>
 
-    <!-- News -->
-    {% if page.announcements and page.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-      </h2>
-      {% include news.liquid limit=true %}
-    {% endif %}
+    <!-- Social links row -->
+    <div class="carnival-links">
+      {% if site.email %}
+        <a href="mailto:{{ site.email }}" class="carnival-pill-outline">✉ email</a>
+      {% endif %}
+      {% if site.scholar_userid %}
+        <a href="https://scholar.google.com/citations?user={{ site.scholar_userid }}" target="_blank" class="carnival-pill-outline">Google Scholar</a>
+      {% endif %}
+      {% if site.github_username %}
+        <a href="https://github.com/{{ site.github_username }}" target="_blank" class="carnival-pill-outline">GitHub</a>
+      {% endif %}
+      {% if site.cv_pdf %}
+        <a href="{{ site.cv_pdf | relative_url }}" target="_blank" class="carnival-pill-solid">CV ↓</a>
+      {% endif %}
+    </div>
 
-    <!-- Latest posts -->
-    {% if page.latest_posts and page.latest_posts.enabled %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
-      </h2>
-      {% include latest_posts.liquid %}
-    {% endif %}
+  </div><!-- end hero inner -->
 
-    <!-- Selected papers -->
-    {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
-      </h2>
+  <!-- Divider -->
+  <hr class="carnival-divider">
+
+</div><!-- end hero -->
+
+<!-- Body sections -->
+<div class="carnival-body">
+
+  <!-- Selected papers if enabled -->
+  {% if page.selected_papers %}
+    <div class="carnival-section">
+      <h2 class="carnival-sec-head">selected publications</h2>
       {% include selected_papers.liquid %}
-    {% endif %}
+    </div>
+  {% endif %}
 
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% social_links %}</div>
+  <!-- Announcements if enabled -->
+  {% if page.announcements and page.announcements.enabled %}
+    <div class="carnival-section">
+      <h2 class="carnival-sec-head">news</h2>
+      {% include news.liquid limit=true %}
+    </div>
+  {% endif %}
 
-        <div class="contact-note">{{ site.contact_note }}</div>
-      </div>
-    {% endif %}
-
-    {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
-      {% include newsletter.liquid center=true %}
-    {% endif %}
-  </article>
 </div>
+
+<!-- PhD year auto-compute -->
+<script>
+(function() {
+  var start = {{ site.phd_start_year | default: 2022 }};
+  var diff = new Date().getFullYear() - start + 1;
+  var ords = ['1st','2nd','3rd','4th','5th','6th','7th'];
+  var badge = document.getElementById('phd-year-badge');
+  if (badge) badge.textContent = (ords[diff-1] || diff+'th') + '-year PhD';
+})();
+</script>
