@@ -128,20 +128,22 @@ body {
 }
 
 .carnival-pill-solid {
-  font-size: 11px;
-  padding: 5px 14px;
-  border-radius: 99px;
-  background: #ef476f;
-  color: #fff;
-  border: none;
-  text-decoration: none;
-  transition: background 0.15s;
+  font-size: 13px !important;
+  padding: 7px 18px !important;
+  border-radius: 99px !important;
+  background: transparent !important;
+  color: #26547c !important;
+  border: 1px solid rgba(38,84,124,0.28) !important;
+  text-decoration: none !important;
+  transition: border-color 0.15s, color 0.15s !important;
 }
 
+.carnival-pill-outline:hover,
 .carnival-pill-solid:hover {
-  background: #d63d62;
-  color: #fff;
-  text-decoration: none;
+  background: rgba(255,255,255,0.9) !important;
+  border-color: #ef476f !important;
+  color: #ef476f !important;
+  text-decoration: none !important;
 }
 
 /* Divider */
