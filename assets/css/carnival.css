@@ -29,22 +29,28 @@ body {
 
 /* Photo */
 .carnival-photo-wrap {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid rgba(38, 84, 124, 0.2);
-  background: rgba(255,255,255,0.6);
-  flex-shrink: 0;
+  width: 100px !important;
+  height: 100px !important;
+  border-radius: 50% !important;
+  overflow: hidden !important;
+  border: 2px solid rgba(38, 84, 124, 0.2) !important;
+  background: rgba(255,255,255,0.6) !important;
+  flex-shrink: 0 !important;
+  margin: 0 auto !important;
 }
 
-.carnival-photo {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover;
+.carnival-photo-wrap img,
+.carnival-photo-wrap figure,
+.carnival-photo-wrap .img-fluid {
+  width: 100px !important;
+  height: 100px !important;
+  max-width: 100px !important;
+  object-fit: cover !important;
   border-radius: 50% !important;
   margin: 0 !important;
+  padding: 0 !important;
   box-shadow: none !important;
+  display: block !important;
 }
 
 /* Name */
