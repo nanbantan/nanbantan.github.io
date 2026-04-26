@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: PhD Student · Computer Science & Engineering · Advised by <a href="https://www.dgomezara.cl/">Prof. Diego Gómez-Zará</a>
+subtitle: University of Notre Dame · Computer Science & Engineering · Advised by <a href="https://www.dgomezara.cl/">Prof. Diego Gómez-Zará</a>
 nav_order: 1 
 profile:
   align: right
