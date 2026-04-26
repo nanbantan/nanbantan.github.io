@@ -8,10 +8,9 @@ profile:
   align: right
   image: prof_pic.jpg
   image_circular: true
-
 news: false
 selected_papers: false
-social: true
+social: false
 ---
 
 I study **adoption, diffusion, and impact in scientific communities** — using citation networks, co-authorship graphs, and text embeddings to understand how ideas spread, who drives scientific change, and how generative AI is reshaping social science research.
