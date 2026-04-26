@@ -370,3 +370,41 @@ footer a:hover {
     padding: 0 16px;
   }
 }
+
+/* Fix nav gap */
+body.fixed-top-nav {
+  padding-top: 0 !important;
+}
+
+/* Fix font sizes globally */
+body, p, li, td, th {
+  font-size: 16px !important;
+  font-family: 'Rubik', sans-serif !important;
+}
+
+.carnival-bio {
+  font-size: 16px !important;
+  line-height: 1.85 !important;
+}
+
+.carnival-name {
+  font-size: 28px !important;
+}
+
+.carnival-subtitle {
+  font-size: 15px !important;
+}
+
+.carnival-pill-outline,
+.carnival-pill-solid {
+  font-size: 13px !important;
+  padding: 7px 18px !important;
+}
+
+.nav-link {
+  font-size: 15px !important;
+}
+
+.navbar-brand {
+  font-size: 17px !important;
+}
