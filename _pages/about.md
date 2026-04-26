@@ -13,7 +13,7 @@ selected_papers: false
 social: false
 ---
 
-I study **adoption, diffusion, and impact in scientific communities** — using citation networks, co-authorship graphs, and text embeddings to understand how ideas spread, who drives scientific change, and how generative AI is reshaping social science research.
+I study **adoption, diffusion, and impact in scientific communities** using citation networks, co-authorship graphs, and text embeddings to understand how people and ideas move through social and epistemic structures and what makes some movements more consequential than others
 
 <div class="carnival-projects">
 
@@ -22,9 +22,9 @@ I study **adoption, diffusion, and impact in scientific communities** — using 
   <div class="carnival-proj-grid">
 
     <div class="carnival-proj-card">
-      <div class="carnival-proj-title">Disruption prediction</div>
+      <div class="carnival-proj-title">Disruption and Team Gender Composition</div>
       <div class="carnival-proj-dot"></div>
-      <div class="carnival-proj-desc">Forecasting CD index disruption scores from citation network structure and text embeddings before a paper accumulates citations.</div>
+      <div class="carnival-proj-desc">What kind of teams make more disruptive work?</div>
     </div>
 
     <div class="carnival-proj-card">
@@ -34,9 +34,9 @@ I study **adoption, diffusion, and impact in scientific communities** — using 
     </div>
 
     <div class="carnival-proj-card">
-      <div class="carnival-proj-title">Disruption & researcher demographics</div>
+      <div class="carnival-proj-title">Predicting disruption from semantic networks</div>
       <div class="carnival-proj-dot"></div>
-      <div class="carnival-proj-desc">Examining how gender, career stage, and institutional prestige relate to a researcher's likelihood of producing disruptive work.</div>
+      <div class="carnival-proj-desc">Using BERT-based embeddings to classify disruptive papers from paper text and citation network.</div>
     </div>
 
     <div class="carnival-proj-card">
