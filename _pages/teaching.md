@@ -1,15 +1,22 @@
 ---
 layout: page
-permalink: /teaching/
 title: teaching
-description: Course materials, schedules, and resources for classes taught.
+permalink: /teaching/
+description:
 nav: true
-nav_order: 6
-calendar: true
+nav_order: 3
 ---
 
-This page displays a collection of courses with detailed schedules, materials, and resources. You can organize your courses by years, terms, or topics.
+## Teaching Assistant
 
-{% include calendar.liquid calendar_id='test@gmail.com' timezone='Asia/Shanghai' %}
+**Data Science** · Spring 2026
+<br>Weekly recitation, assignment design
 
-{% include courses.liquid %}
+**Operating System Principles** · Spring 2022
+<br>Office hours, grading
+
+**Principles of Computing** · Fall 2022
+<br>Office hours, grading
+
+---
+
