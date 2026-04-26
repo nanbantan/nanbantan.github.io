@@ -55,7 +55,7 @@ body {
 
 /* Name */
 .carnival-name {
-  font-size: 22px !important;
+  font-size: 30px !important;
   font-weight: 500 !important;
   color: #0d1f30 !important;
   margin-bottom: 2px !important;
@@ -500,4 +500,9 @@ body, p, li, td, th {
 
 body.fixed-top-nav {
   padding-top: 57px !important;
+}
+.post h2,
+.post h3 {
+  font-size: 16px !important;
+  letter-spacing: 0.05em !important;
 }
