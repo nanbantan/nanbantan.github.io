@@ -12,143 +12,56 @@
       <meta http-equiv="refresh" content="3; url={{ redirect }}">
     {% endif %}
     {% include head.liquid %}
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
-
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-      :root {
-        --blue:   #26547c;
-        --pink:   #ef476f;
-        --yellow: #ffd166;
-        --bg:     #eef4fa;
-        --bg2:    #fffbf0;
-        --text:   #0d1f30;
-        --text2:  #555;
-        --text3:  #999;
-        --border: rgba(38,84,124,0.10);
-      }
-
-      html, body {
-        font-family: 'Rubik', sans-serif !important;
-        font-size: 14px;
-        background: var(--bg);
-        color: var(--text);
-        min-height: 100vh;
-      }
-
-      /* ── Canvas background ── */
-      #bg-canvas {
-        position: fixed; inset: 0;
-        width: 100%; height: 100%;
-        z-index: 0; pointer-events: none;
-      }
-
-      /* ── Nav ── */
-      .site-nav {
-        position: sticky; top: 0; z-index: 100;
-        background: rgba(238,244,250,0.92);
-        backdrop-filter: blur(10px);
-        border-bottom: 0.5px solid var(--border);
-        height: 48px;
-        display: flex; align-items: center; justify-content: space-between;
-        padding: 0 32px;
-      }
-      .site-nav .nav-name {
-        font-size: 14px; font-weight: 500; color: var(--blue);
-        text-decoration: none;
-      }
-      .site-nav .nav-links { display: flex; gap: 1.5rem; }
-      .site-nav .nav-links a {
-        font-size: 12px; color: var(--text2);
-        text-decoration: none; font-family: 'Rubik', sans-serif;
-      }
-      .site-nav .nav-links a:hover { color: var(--blue); }
-
-      /* ── Main content wrapper ── */
-      .site-main {
-        position: relative; z-index: 2;
-        max-width: 860px; margin: 0 auto;
-        padding: 0 0 4rem;
-      }
-
-      /* ── Footer ── */
-      .site-footer {
-        position: relative; z-index: 2;
-        text-align: center;
-        padding: 1.5rem;
-        font-size: 11px; color: var(--text3);
-        border-top: 0.5px solid var(--border);
-      }
-      .site-footer a { color: var(--blue); text-decoration: none; }
-
-      /* ── Inner pages (non-about) ── */
-      .page-content {
-        padding: 2.5rem 32px;
-      }
-      .page-title {
-        font-size: 11px; font-weight: 500;
-        text-transform: uppercase; letter-spacing: 0.09em;
-        color: var(--pink); margin-bottom: 2rem;
-      }
-
-      /* ── Shared section styles (used by inner pages) ── */
-      .entry { padding: 12px 0; border-bottom: 0.5px solid var(--border); }
-      .entry:last-child { border-bottom: none; }
-      .entry-title { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
-      .entry-sub { font-size: 12px; color: var(--text2); margin-bottom: 2px; }
-      .entry-meta { font-size: 12px; color: var(--text3); font-style: italic; }
-      .entry-row { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: start; }
-      .entry-sem { font-size: 11px; color: var(--text3); white-space: nowrap; }
-
-      /* Override Bootstrap/MDB remnants */
-      .container { max-width: 860px !important; padding: 0 !important; }
-      .mt-5 { margin-top: 0 !important; }
-    </style>
   </head>
-  <body>
-    <canvas id="bg-canvas"></canvas>
+  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
 
-    <!-- Nav -->
-    <nav class="site-nav">
-      <a href="{{ '/' | relative_url }}" class="nav-name">
-        {{ site.first_name }} {{ site.last_name }}
-      </a>
-      <div class="nav-links">
-        <a href="{{ '/' | relative_url }}">about</a>
-        <a href="{{ '/publications/' | relative_url }}">publications</a>
-        <a href="{{ '/teaching/' | relative_url }}">teaching</a>
-        <a href="{{ '/talks/' | relative_url }}">talks</a>
-        {% if site.cv_pdf %}
-          <a href="{{ site.cv_pdf | relative_url }}" target="_blank">cv ↗</a>
-        {% else %}
-          <a href="{{ '/cv/' | relative_url }}">cv</a>
-        {% endif %}
-      </div>
-    </nav>
+    <!-- Network animation canvas -->
+    <canvas id="bg-canvas" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
+
+    <!-- Header -->
+    {% include header.liquid %}
 
     <!-- Content -->
-    <main class="site-main">
-      {{ content }}
-    </main>
+    <div class="container mt-5" role="main" style="position:relative;z-index:2;">
+      {% if page.toc and page.toc.sidebar %}
+        {% if page.toc.sidebar == 'right' %}
+          <div class="row">
+            <div class="col-sm-9">{{ content }}</div>
+            <div class="col-sm-3">
+              <nav id="toc-sidebar" class="sticky-top"></nav>
+            </div>
+          </div>
+        {% else %}
+          <div class="row">
+            <div class="col-sm-3">
+              <nav id="toc-sidebar" class="sticky-top"></nav>
+            </div>
+            <div class="col-sm-9">{{ content }}</div>
+          </div>
+        {% endif %}
+      {% else %}
+        {{ content }}
+      {% endif %}
+    </div>
 
     <!-- Footer -->
-    <footer class="site-footer">
-      © {{ 'now' | date: '%Y' }} {{ site.first_name }} {{ site.last_name }}
-      {% if site.email %}· <a href="mailto:{{ site.email }}">{{ site.email }}</a>{% endif %}
-    </footer>
+    {% include footer.liquid %}
 
+    <!-- JavaScripts -->
     {% include scripts.liquid %}
 
-    <!-- Network animation -->
+    <!-- Network animation script -->
     <script>
-      const canvas = document.getElementById('bg-canvas');
-      const ctx = canvas.getContext('2d');
-      let W, H, nodes, edges, tick = 0;
-      const pal = {
+    (function() {
+      var canvas = document.getElementById('bg-canvas');
+      if (!canvas) return;
+      var ctx = canvas.getContext('2d');
+      var W, H, nodes, edges, tick = 0;
+      var pal = {
         nodes: ['#26547c','#ef476f','#ffd166','#4a7fa8','#f47d96','#ffe099'],
         bg: ['#eef4fa','#fffbf0'],
-        edgeActive: '#ef476f', edgeInactive: '#b8cfe0'
+        edgeActive: '#ef476f',
+        edgeInactive: '#b8cfe0'
       };
       function resize() {
         W = window.innerWidth;
@@ -157,51 +70,52 @@
       }
       function init() {
         resize();
-        const count = 64;
-        nodes = Array.from({length: count}, () => ({
+        var count = 64;
+        nodes = Array.from({length: count}, function() { return {
           x: Math.random()*W, y: Math.random()*H,
           r: 2 + Math.random()*3,
           vx: (Math.random()-0.5)*0.22, vy: (Math.random()-0.5)*0.22,
           color: pal.nodes[Math.floor(Math.random()*pal.nodes.length)],
           pulse: Math.random()*Math.PI*2,
           pulseSpeed: 0.01+Math.random()*0.014,
-          active: Math.random()<0.15,
-        }));
+          active: Math.random()<0.15
+        }; });
         edges = [];
-        for (let i=0;i<count;i++)
-          for (let j=i+1;j<count;j++) {
-            const dx=nodes[i].x-nodes[j].x, dy=nodes[i].y-nodes[j].y;
+        for (var i=0;i<count;i++)
+          for (var j=i+1;j<count;j++) {
+            var dx=nodes[i].x-nodes[j].x, dy=nodes[i].y-nodes[j].y;
             if (Math.sqrt(dx*dx+dy*dy)<130) edges.push([i,j]);
           }
       }
       function draw() {
         ctx.clearRect(0,0,W,H);
-        const g=ctx.createLinearGradient(0,0,W,H);
+        var g=ctx.createLinearGradient(0,0,W,H);
         g.addColorStop(0,pal.bg[0]); g.addColorStop(1,pal.bg[1]);
         ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
         tick++;
         if (tick%65===0) nodes[Math.floor(Math.random()*nodes.length)].active=true;
-        nodes.forEach((n,i)=>{
-          if (n.active) edges.forEach(([a,b])=>{
-            const o=a===i?nodes[b]:b===i?nodes[a]:null;
+        nodes.forEach(function(n,i) {
+          if (n.active) edges.forEach(function(e) {
+            var a=e[0],b=e[1];
+            var o=a===i?nodes[b]:b===i?nodes[a]:null;
             if (o&&!o.active&&Math.random()<0.003) o.active=true;
           });
         });
-        edges.forEach(([i,j])=>{
-          const ni=nodes[i],nj=nodes[j],both=ni.active&&nj.active;
+        edges.forEach(function(e) {
+          var ni=nodes[e[0]],nj=nodes[e[1]],both=ni.active&&nj.active;
           ctx.beginPath(); ctx.moveTo(ni.x,ni.y); ctx.lineTo(nj.x,nj.y);
           ctx.strokeStyle=both?pal.edgeActive:pal.edgeInactive;
           ctx.globalAlpha=both?0.10:0.04;
           ctx.lineWidth=both?1:0.5;
           ctx.stroke(); ctx.globalAlpha=1;
         });
-        nodes.forEach(n=>{
+        nodes.forEach(function(n) {
           n.pulse+=n.pulseSpeed;
           n.x+=n.vx; n.y+=n.vy;
           if (n.x<0||n.x>W) n.vx*=-1;
           if (n.y<0||n.y>H) n.vy*=-1;
-          const pr=n.r*(n.active?1+0.28*Math.sin(n.pulse):1);
-          if (n.active){
+          var pr=n.r*(n.active?1+0.28*Math.sin(n.pulse):1);
+          if (n.active) {
             ctx.beginPath(); ctx.arc(n.x,n.y,pr+5,0,Math.PI*2);
             ctx.fillStyle=n.color; ctx.globalAlpha=0.06; ctx.fill(); ctx.globalAlpha=1;
           }
@@ -213,7 +127,9 @@
         requestAnimationFrame(draw);
       }
       init(); draw();
-      window.addEventListener('resize', init);
+      window.addEventListener('resize', function() { init(); });
+    })();
     </script>
+
   </body>
 </html>
