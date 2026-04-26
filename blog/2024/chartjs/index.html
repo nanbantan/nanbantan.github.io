@@ -213,7 +213,7 @@
           ctx.beginPath(); ctx.moveTo(ni.x,ni.y); ctx.lineTo(nj.x,nj.y);
           ctx.strokeStyle=both?pal.edgeActive:pal.edgeInactive;
           // edge opacity
-          ctx.globalAlpha=both?0.18:0.06;
+          ctx.globalAlpha=both?0.13:0.04;
           ctx.lineWidth=both?1:0.5;
           ctx.stroke(); ctx.globalAlpha=1;
         });
@@ -230,7 +230,7 @@
           ctx.beginPath(); ctx.arc(n.x,n.y,pr,0,Math.PI*2);
           ctx.fillStyle=n.color;
           // node opacity
-          ctx.globalAlpha=n.active?0.42:0.16;
+          ctx.globalAlpha=n.active?0.30:0.12;
           ctx.fill(); ctx.globalAlpha=1;
         });
         requestAnimationFrame(draw);
