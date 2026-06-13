@@ -534,7 +534,7 @@
     }).join('');
     // ── Home ──
     qs('home-name').textContent  = SITE.greeting;
-    qs('home-title').textContent = yearLabel + ' · advised by ' + SITE.advisor.name;
+    // qs('home-title').textContent = yearLabel + ' · advised by ' + SITE.advisor.name;
     qs('home-bio').innerHTML     = SITE.bio;
     qs('home-links').innerHTML = [
       { label: 'email',   href: 'mailto:' + SITE.email },
