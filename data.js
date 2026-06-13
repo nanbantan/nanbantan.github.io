@@ -18,7 +18,8 @@ const SITE = {
   cv: "assets/cv.pdf",
   university: "University of Notre Dame",
   department: "Computer Science & Engineering",
-  office: "[Building] [Room], [University]",
+  // office: "[Building] [Room], [University]",
+  greeting: "Hi! I am Nandini."
 
   // --------------------------------------------------------------------------
   // Home page bio
@@ -29,7 +30,7 @@ const SITE = {
   // About page
   // --------------------------------------------------------------------------
   about: {
-    background: `PhD candidate in Computer Science & Engineering at University of Notre Dame. Advised by <a href="https://ringzlab.com/">Prof. Diego Gomez-Zara</a>.`,
+    background: `PhD student in Computer Science & Engineering at University of Notre Dame. Advised by <a href="https://ringzlab.com/">Prof. Diego Gomez-Zara</a>.`,
     interests: `Science of science, network science, computational social science, bibliometrics, generative AI.`,
     note: `Feel free to reach out about research, collaboration, or anything else.`,
   },
@@ -150,8 +151,9 @@ const SITE = {
     { id: "publications",  label: "publications",  icon: "assets/icons/publications.png" },
     { id: "presentations", label: "presentations", icon: "assets/icons/presentations.png" },
     { id: "cv",            label: "cv",            icon: "assets/icons/cv.png" },
-    { id: "about",         label: "about",         icon: "assets/icons/about.png" },
-    { id: "gallery",       label: "art",           icon: "assets/icons/art.png" },
+    { id: "about", label: "about", icon: "assets/icons/about.png", children: [
+      { id: "gallery", label: "art", icon: "assets/icons/art.png" }
+    ]},
   ],
 
 };
