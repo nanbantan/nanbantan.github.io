@@ -8,7 +8,7 @@ const SITE = {
   // --------------------------------------------------------------------------
   // Personal info
   // --------------------------------------------------------------------------
-  name: "Borgan [Last Name]",
+  name: "Nandini Banerjee",
   title: "PhD Candidate · Computer Science & Engineering",
   advisor: { name: "Prof. Diego Gomez-Zara", url: "https://ringzlab.com/" },
   phdYear: 2022,
