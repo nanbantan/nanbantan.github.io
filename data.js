@@ -19,7 +19,7 @@ const SITE = {
   university: "University of Notre Dame",
   department: "Computer Science & Engineering",
   // office: "[Building] [Room], [University]",
-  greeting: "Hi! I am Nandini."
+  greeting: "Hi! I am Nandini.",
 
   // --------------------------------------------------------------------------
   // Home page bio
