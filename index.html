@@ -349,7 +349,7 @@
       padding: 16px 60px;
       font-family: var(--mono);
       font-size: 11px;
-      color: var(--lighter);
+      color: var(--light);
       display: flex;
       justify-content: space-between;
     }
@@ -490,11 +490,11 @@
     // ── PhD year ──
     var diff = new Date().getFullYear() - SITE.phdYear + 1;
     var ords = ['1st','2nd','3rd','4th','5th','6th','7th'];
-    var yearLabel = (ords[diff-1] || diff+'th') + '-year phd';
+    var yearLabel = (ords[diff-1] || diff+'th') + '-year phd student';
 
     // ── Header & footer ──
     qs('site-name').textContent   = SITE.name;
-    qs('header-meta').textContent = yearLabel + ' · advised by ' + SITE.advisor.name.toLowerCase();
+    qs('header-meta').textContent = yearLabel + ' · ' + SITE.department.toLowerCase();
     qs('footer-left').textContent = '© ' + new Date().getFullYear() + ' ' + SITE.name.toLowerCase();
     qs('footer-right').textContent = SITE.university.toLowerCase();
 
