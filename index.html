@@ -155,15 +155,15 @@
       padding-left: 28px !important;
     }
     
-    .nav-child .nav-icon {
-      width: 16px !important;
-      height: 16px !important;
+    /* .nav-child .nav-icon {
+      width: 16px;
+      height: 16px;
     }
     
     .nav-child .nav-label {
       font-size: 11px !important;
       color: var(--light);
-    }
+    } */
 
     /* ── Main ── */
     .site-main {
@@ -617,6 +617,8 @@
 
     // ── About ──
     qs('about-content').innerHTML = [
+      '<div class="about-block"><div class="about-label">background</div><div class="about-text">' + SITE.about.background + '</div></div>',
+      '<div class="about-block"><div class="about-label">interests</div><div class="about-text">' + SITE.about.interests + '</div></div>',
       '<div class="about-block"><div class="about-label">contact</div>' +
       '<div class="about-text" style="color:#aaa;font-size:13px;margin-bottom:8px;">' + (SITE.about.note || '') + '</div>' +
       '<div class="about-contact"><a href="mailto:' + SITE.email + '">' + SITE.email + '</a></div></div>',
