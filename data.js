@@ -16,8 +16,8 @@ const SITE = {
   scholar: "https://scholar.google.com/citations?user=qPRoaFsAAAAJ&hl=en",
   github: "https://github.com/nanbantan",
   cv: "assets/cv.pdf",
-  university: "[University]",
-  department: "[Department]",
+  university: "University of Notre Dame",
+  department: "Computer Science & Engineering",
   office: "[Building] [Room], [University]",
 
   // --------------------------------------------------------------------------
