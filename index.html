@@ -597,8 +597,10 @@
     qs('about-content').innerHTML = [
       '<div class="about-block"><div class="about-label">background</div><div class="about-text">' + SITE.about.background + '</div></div>',
       '<div class="about-block"><div class="about-label">interests</div><div class="about-text">' + SITE.about.interests + '</div></div>',
-      '<div class="about-block"><div class="about-label">contact</div><div class="about-text" style="color:#bbb;font-size:13px;">' + SITE.about.note + '</div><div class="about-contact"><a href="mailto:' + SITE.email + '">' + SITE.email + '</a><br>' + SITE.office + '</div></div>',: '',
+      '<div class="about-block"><div class="about-label">contact</div><div class="about-contact"><a href="mailto:' + SITE.email + '">' + SITE.email + '</a><br>' + SITE.office + '</div></div>',
+      SITE.about.note ? '<div class="about-block"><div class="about-text" style="color:#bbb;font-size:13px;">' + SITE.about.note + '</div></div>' : '',
     ].join('');
+
 
     // ── Gallery ──
     if (SITE.gallery && SITE.gallery.length > 0) {
