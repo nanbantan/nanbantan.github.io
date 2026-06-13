@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Borgan [Last Name]</title>
+  <meta name="description" content="PhD Candidate in Computer Science & Engineering studying adoption, diffusion, and impact in scientific communities.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111;
+      --mid: #777;
+      --light: #bbb;
+      --lighter: #e8e8e8;
+      --bg: #fff;
+      --mono: 'DM Mono', monospace;
+      --sidebar-width: 160px;
+      --header-height: 52px;
+    }
+
+    html { font-size: 15px; }
+
+    body {
+      font-family: 'Switzer', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--black);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    strong { font-weight: 500; }
+
+    /* ── Header ── */
+    .site-header {
+      height: var(--header-height);
+      padding: 0 36px 0 calc(var(--sidebar-width) + 36px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+    }
+
+    .header-name {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--black);
+      cursor: pointer;
+      letter-spacing: -0.01em;
+      transition: opacity 0.1s;
+    }
+    .header-name:hover { opacity: 0.5; }
+
+    .header-meta {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--light);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Layout ── */
+    .site-body {
+      display: flex;
+      flex: 1;
+      padding-top: var(--header-height);
+    }
+
+    /* ── Sidebar nav ── */
+    .site-nav {
+      width: var(--sidebar-width);
+      flex-shrink: 0;
+      padding: 32px 16px;
+      position: fixed;
+      top: var(--header-height);
+      bottom: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      overflow-y: auto;
+      border-right: 0.5px solid var(--lighter);
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.1s;
+      user-select: none;
+    }
+    .nav-link:hover { background: #f5f5f5; }
+    .nav-link.active { background: #f0f0f0; }
+
+    .nav-icon {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+      flex-shrink: 0;
+      filter: grayscale(100%) opacity(35%);
+      transition: filter 0.15s;
+    }
+    .nav-link:hover .nav-icon,
+    .nav-link.active .nav-icon {
+      filter: grayscale(0%) opacity(100%);
+    }
+
+    .nav-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--light);
+      letter-spacing: 0.03em;
+      transition: color 0.15s;
+    }
+    .nav-link:hover .nav-label,
+    .nav-link.active .nav-label {
+      color: var(--black);
+      font-weight: 500;
+    }
+
+    /* ── Main ── */
+    .site-main {
+      margin-left: var(--sidebar-width);
+      flex: 1;
+      padding: 44px 60px 80px;
+      max-width: 820px;
+    }
+
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ── Home ── */
+    .home-name {
+      font-size: 34px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .home-title {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--light);
+      letter-spacing: 0.02em;
+      margin-bottom: 28px;
+    }
+    .home-bio {
+      font-size: 15px;
+      line-height: 1.85;
+      color: #444;
+      max-width: 480px;
+      margin-bottom: 32px;
+    }
+    .home-links { display: flex; gap: 20px; flex-wrap: wrap; }
+    .home-link {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--mid);
+      letter-spacing: 0.03em;
+      border-bottom: 0.5px solid var(--lighter);
+      padding-bottom: 1px;
+      transition: color 0.1s, border-color 0.1s;
+    }
+    .home-link:hover { color: var(--black); border-color: var(--black); }
+
+    /* ── Year divider ── */
+    .year-divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 32px 0 14px;
+    }
+    .year-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--light);
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .year-line { flex: 1; height: 0.5px; background: #eee; }
+
+    /* ── Publications ── */
+    .pub-entry { padding: 11px 0; max-width: 560px; }
+    .pub-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 4px;
+      line-height: 1.5;
+    }
+    .pub-title a:hover { text-decoration: underline; }
+    .pub-authors { font-size: 12px; color: var(--mid); margin-bottom: 2px; line-height: 1.5; }
+    .pub-venue { font-size: 12px; color: var(--light); font-style: italic; }
+    .pub-type {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--light);
+      border: 0.5px solid var(--lighter);
+      border-radius: 99px;
+      padding: 1px 7px;
+      margin-left: 6px;
+      vertical-align: middle;
+      font-style: normal;
+    }
+
+    /* ── Teaching ── */
+    .teach-entry {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      padding: 11px 0;
+      max-width: 560px;
+      align-items: start;
+    }
+    .teach-course { font-size: 13px; font-weight: 500; color: var(--black); margin-bottom: 3px; }
+    .teach-role { font-size: 12px; color: var(--mid); }
+    .teach-details { font-size: 12px; color: var(--light); margin-top: 2px; }
+    .teach-sem {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--light);
+      white-space: nowrap;
+      padding-top: 2px;
+    }
+
+    /* ── Research ── */
+    .research-entry { padding: 13px 0; max-width: 520px; }
+    .research-header { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+    .research-dot { width: 6px; height: 6px; border-radius: 50%; background: #ddd; flex-shrink: 0; }
+    .research-dot.done { background: #999; }
+    .research-title { font-size: 13px; font-weight: 500; color: var(--black); }
+    .research-desc { font-size: 12px; color: var(--mid); line-height: 1.7; padding-left: 14px; }
+    .research-link {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--mid);
+      display: inline-block;
+      margin-top: 5px;
+      border-bottom: 0.5px solid var(--lighter);
+      padding-bottom: 1px;
+      transition: color 0.1s, border-color 0.1s;
+    }
+    .research-link:hover { color: var(--black); border-color: var(--black); }
+
+    /* ── Presentations ── */
+    .talk-entry { padding: 11px 0; max-width: 560px; }
+    .talk-title { font-size: 13px; font-weight: 500; color: var(--black); margin-bottom: 3px; line-height: 1.5; }
+    .talk-meta { font-family: var(--mono); font-size: 11px; color: var(--light); }
+
+    /* ── About ── */
+    .about-block { margin-bottom: 32px; max-width: 480px; }
+    .about-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--light);
+      margin-bottom: 8px;
+    }
+    .about-text { font-size: 14px; line-height: 1.8; color: #444; }
+    .about-text a { border-bottom: 0.5px solid var(--lighter); padding-bottom: 1px; }
+    .about-text a:hover { border-color: var(--black); }
+    .about-contact { font-family: var(--mono); font-size: 12px; color: var(--mid); line-height: 1.9; }
+
+    /* ── CV ── */
+    .cv-desc { font-family: var(--mono); font-size: 12px; color: var(--light); margin-bottom: 16px; }
+    .cv-download {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--black);
+      border-bottom: 0.5px solid var(--black);
+      padding-bottom: 1px;
+      transition: opacity 0.1s;
+    }
+    .cv-download:hover { opacity: 0.5; }
+
+    /* ── Gallery ── */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px;
+    }
+    .gallery-item { display: flex; flex-direction: column; gap: 6px; }
+    .gallery-item a {
+      display: block;
+      overflow: hidden;
+      border-radius: 6px;
+      aspect-ratio: 1/1;
+      border: 0.5px solid var(--lighter);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.2s;
+    }
+    .gallery-item a:hover img { transform: scale(1.03); }
+    .gallery-caption {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--light);
+      text-align: center;
+    }
+    .gallery-empty {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--light);
+    }
+
+    /* ── Footer ── */
+    .site-footer {
+      margin-left: var(--sidebar-width);
+      padding: 16px 60px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--lighter);
+      display: flex;
+      justify-content: space-between;
+      border-top: 0.5px solid var(--lighter);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      :root { --sidebar-width: 0px; }
+      .site-nav {
+        position: fixed;
+        bottom: 0; top: auto;
+        left: 0; right: 0;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        padding: 8px 12px;
+        background: rgba(255,255,255,0.97);
+        border-top: 0.5px solid var(--lighter);
+        border-right: none;
+        gap: 0;
+        z-index: 100;
+      }
+      .nav-label { display: none; }
+      .nav-icon { width: 24px; height: 24px; }
+      .site-main { margin-left: 0; padding: 32px 24px 80px; }
+      .site-footer { margin-left: 0; padding: 16px 24px; }
+      .site-header { padding: 0 20px; }
+      .header-meta { display: none; }
+      .home-name { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <span class="header-name" onclick="showPage('home')" id="site-name"></span>
+    <span class="header-meta" id="header-meta"></span>
+  </header>
+
+  <div class="site-body">
+
+    <!-- Sidebar nav (built from data.js) -->
+    <nav class="site-nav" id="site-nav"></nav>
+
+    <!-- Main content -->
+    <main class="site-main">
+
+      <!-- Home -->
+      <div class="page active" id="page-home">
+        <div class="home-name"  id="home-name"></div>
+        <div class="home-title" id="home-title"></div>
+        <div class="home-bio"   id="home-bio"></div>
+        <div class="home-links" id="home-links"></div>
+      </div>
+
+      <!-- Research -->
+      <div class="page" id="page-research">
+        <div id="research-list"></div>
+      </div>
+
+      <!-- Teaching -->
+      <div class="page" id="page-teaching">
+        <div id="teaching-list"></div>
+      </div>
+
+      <!-- Publications -->
+      <div class="page" id="page-publications">
+        <div id="publications-list"></div>
+      </div>
+
+      <!-- Presentations -->
+      <div class="page" id="page-presentations">
+        <div id="presentations-list"></div>
+      </div>
+
+      <!-- CV -->
+      <div class="page" id="page-cv">
+        <div class="cv-desc">download or view full cv</div>
+        <a class="cv-download" id="cv-link" href="#" target="_blank">curriculum_vitae.pdf ↓</a>
+      </div>
+
+      <!-- About -->
+      <div class="page" id="page-about">
+        <div id="about-content"></div>
+      </div>
+
+      <!-- Gallery -->
+      <div class="page" id="page-gallery">
+        <div id="gallery-content"></div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <span id="footer-left"></span>
+    <span id="footer-right"></span>
+  </footer>
+
+  <script src="data.js"></script>
+  <script>
+  (function() {
+
+    function qs(id) { return document.getElementById(id); }
+
+    function boldName(str) {
+      return str.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+    }
+
+    function groupByYear(arr) {
+      var groups = {};
+      arr.forEach(function(item) {
+        var y = item.year;
+        if (!groups[y]) groups[y] = [];
+        groups[y].push(item);
+      });
+      return groups;
+    }
+
+    function sortedYears(groups) {
+      return Object.keys(groups).map(Number).sort(function(a,b){ return b-a; });
+    }
+
+    function yearDivider(year) {
+      return '<div class="year-divider"><span class="year-label">' + year + '</span><div class="year-line"></div></div>';
+    }
+
+    // ── PhD year ──
+    var diff = new Date().getFullYear() - SITE.phdYear + 1;
+    var ords = ['1st','2nd','3rd','4th','5th','6th','7th'];
+    var yearLabel = (ords[diff-1] || diff+'th') + '-year phd';
+
+    // ── Header & footer ──
+    qs('site-name').textContent   = SITE.name;
+    qs('header-meta').textContent = yearLabel + ' · advised by ' + SITE.advisor.name.toLowerCase();
+    qs('footer-left').textContent = '© ' + new Date().getFullYear() + ' ' + SITE.name.toLowerCase();
+    qs('footer-right').textContent = SITE.university.toLowerCase();
+
+    // ── Build nav from data ──
+    var allPages = ['home'].concat(SITE.nav.map(function(n){ return n.id; }));
+    var navEl = qs('site-nav');
+    navEl.innerHTML = SITE.nav.map(function(item) {
+      return [
+        '<span class="nav-link" onclick="showPage(\'' + item.id + '\')" id="nav-' + item.id + '">',
+        '  <img class="nav-icon" src="' + item.icon + '" alt="' + item.label + '">',
+        '  <span class="nav-label">' + item.label + '</span>',
+        '</span>',
+      ].join('');
+    }).join('');
+
+    // ── Home ──
+    qs('home-name').textContent  = SITE.name;
+    qs('home-title').textContent = yearLabel + ' · advised by ' + SITE.advisor.name;
+    qs('home-bio').innerHTML     = SITE.bio;
+    qs('home-links').innerHTML = [
+      { label: 'email',   href: 'mailto:' + SITE.email },
+      { label: 'scholar', href: SITE.scholar },
+      { label: 'github',  href: SITE.github },
+    ].map(function(l) {
+      return '<a class="home-link" href="' + l.href + '" target="_blank">' + l.label + '</a>';
+    }).join('');
+
+    // ── CV ──
+    qs('cv-link').href = SITE.cv;
+
+    // ── Research ──
+    qs('research-list').innerHTML = SITE.research.map(function(r) {
+      var dotClass = r.status === 'done' ? 'research-dot done' : 'research-dot';
+      var linkHtml = (r.link && r.linkLabel)
+        ? '<a class="research-link" href="' + r.link + '" target="_blank">' + r.linkLabel + '</a>'
+        : '';
+      return [
+        '<div class="research-entry">',
+        '  <div class="research-header">',
+        '    <div class="' + dotClass + '"></div>',
+        '    <div class="research-title">' + r.title + '</div>',
+        '  </div>',
+        '  <div class="research-desc">' + r.desc + ' ' + linkHtml + '</div>',
+        '</div>',
+      ].join('');
+    }).join('');
+
+    // ── Publications ──
+    var pubGroups = groupByYear(SITE.publications);
+    qs('publications-list').innerHTML = sortedYears(pubGroups).map(function(y) {
+      return yearDivider(y) + pubGroups[y].map(function(p) {
+        var titleHtml = p.url
+          ? '<a href="' + p.url + '" target="_blank">' + p.title + '</a>'
+          : p.title;
+        var typeHtml = p.type ? '<span class="pub-type">' + p.type + '</span>' : '';
+        return [
+          '<div class="pub-entry">',
+          '  <div class="pub-title">' + titleHtml + typeHtml + '</div>',
+          '  <div class="pub-authors">' + boldName(p.authors) + '</div>',
+          '  <div class="pub-venue">' + p.venue + '</div>',
+          '</div>',
+        ].join('');
+      }).join('');
+    }).join('');
+
+    // ── Teaching ──
+    var teachGroups = groupByYear(SITE.teaching);
+    qs('teaching-list').innerHTML = sortedYears(teachGroups).map(function(y) {
+      return yearDivider(y) + teachGroups[y].map(function(t) {
+        return [
+          '<div class="teach-entry">',
+          '  <div>',
+          '    <div class="teach-course">' + t.course + '</div>',
+          '    <div class="teach-role">' + t.role + '</div>',
+          '    <div class="teach-details">' + (t.details || '') + '</div>',
+          '  </div>',
+          '  <div class="teach-sem">' + t.semester + '</div>',
+          '</div>',
+        ].join('');
+      }).join('');
+    }).join('');
+
+    // ── Presentations ──
+    var presGroups = groupByYear(SITE.presentations);
+    qs('presentations-list').innerHTML = sortedYears(presGroups).map(function(y) {
+      return yearDivider(y) + presGroups[y].map(function(t) {
+        var titleHtml = t.url
+          ? '<a href="' + t.url + '" target="_blank">' + t.title + '</a>'
+          : t.title;
+        return [
+          '<div class="talk-entry">',
+          '  <div class="talk-title">' + titleHtml + '</div>',
+          '  <div class="talk-meta">' + t.venue + ' · ' + t.location + ' · ' + t.date + '</div>',
+          '</div>',
+        ].join('');
+      }).join('');
+    }).join('');
+
+    // ── About ──
+    qs('about-content').innerHTML = [
+      '<div class="about-block"><div class="about-label">background</div><div class="about-text">' + SITE.about.background + '</div></div>',
+      '<div class="about-block"><div class="about-label">interests</div><div class="about-text">' + SITE.about.interests + '</div></div>',
+      '<div class="about-block"><div class="about-label">contact</div><div class="about-contact"><a href="mailto:' + SITE.email + '">' + SITE.email + '</a><br>' + SITE.office + '</div></div>',
+      SITE.about.note ? '<div class="about-block"><div class="about-text" style="color:#bbb;font-size:13px;">' + SITE.about.note + '</div></div>' : '',
+    ].join('');
+
+    // ── Gallery ──
+    if (SITE.gallery && SITE.gallery.length > 0) {
+      qs('gallery-content').innerHTML = '<div class="gallery-grid">' +
+        SITE.gallery.map(function(g) {
+          return [
+            '<div class="gallery-item">',
+            '  <a href="' + g.src + '" target="_blank">',
+            '    <img src="' + g.src + '" alt="' + (g.caption || '') + '" loading="lazy">',
+            '  </a>',
+            g.caption ? '<div class="gallery-caption">' + g.caption + '</div>' : '',
+            '</div>',
+          ].join('');
+        }).join('') + '</div>';
+    } else {
+      qs('gallery-content').innerHTML = '<p class="gallery-empty">no images yet — add them in data.js</p>';
+    }
+
+    // ── Navigation ──
+    window.showPage = function(name) {
+      allPages.forEach(function(p) {
+        var page = qs('page-' + p);
+        var nav  = qs('nav-'  + p);
+        if (page) page.classList.toggle('active', p === name);
+        if (nav)  nav.classList.toggle('active',  p === name);
+      });
+      window.scrollTo(0, 0);
+      history.pushState(null, '', '#' + name);
+    };
+
+    function loadFromHash() {
+      var hash = window.location.hash.replace('#', '') || 'home';
+      if (allPages.indexOf(hash) !== -1) showPage(hash);
+      else showPage('home');
+    }
+
+    window.addEventListener('popstate', loadFromHash);
+    loadFromHash();
+
+  })();
+  </script>
+
+</body>
+</html>
