@@ -10,10 +10,10 @@ const SITE = {
   // --------------------------------------------------------------------------
   name: "Borgan [Last Name]",
   title: "PhD Candidate · Computer Science & Engineering",
-  advisor: { name: "Prof. [Z]", url: "#" },
+  advisor: { name: "Prof. Diego Gomez-Zara", url: "https://ringzlab.com/" },
   phdYear: 2022,
-  email: "username@university.edu",
-  scholar: "https://scholar.google.com/citations?user=XXXXXXXX",
+  email: "nbanerje@nd.edu",
+  scholar: "https://scholar.google.com/citations?user=qPRoaFsAAAAJ&hl=en",
   github: "https://github.com/nanbantan",
   cv: "assets/cv.pdf",
   university: "[University]",
@@ -29,7 +29,7 @@ const SITE = {
   // About page
   // --------------------------------------------------------------------------
   about: {
-    background: `PhD candidate in Computer Science & Engineering at [University]. Previously [undergraduate institution]. Advised by <a href="#">Prof. [Z]</a>.`,
+    background: `PhD candidate in Computer Science & Engineering at University of Notre Dame. Advised by <a href="https://ringzlab.com/">Prof. Diego Gomez-Zara</a>.`,
     interests: `Science of science, network science, computational social science, bibliometrics, generative AI.`,
     note: `Feel free to reach out about research, collaboration, or anything else.`,
   },
@@ -43,7 +43,7 @@ const SITE = {
       desc: "Forecasting CD index disruption scores from citation network structure and text embeddings before a paper accumulates citations.",
       status: "in-progress",
       link: null,
-      linkLabel: "preprint ↗",
+      // linkLabel: "preprint ↗",
     },
     {
       title: "Subfield adoption & diffusion",
