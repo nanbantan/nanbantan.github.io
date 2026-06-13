@@ -164,6 +164,7 @@
 
     /* ── Home ── */
     .home-name {
+      font-family: var(--mono);
       font-size: 34px;
       font-weight: 500;
       letter-spacing: -0.03em;
@@ -180,7 +181,7 @@
     .home-bio {
       font-size: 15px;
       line-height: 1.85;
-      color: #444;
+      color: var(--mid);
       max-width: 480px;
       margin-bottom: 32px;
     }
@@ -291,10 +292,10 @@
       color: var(--black);
       margin-bottom: 8px;
     }
-    .about-text { font-size: 14px; line-height: 1.8; color: #444; }
+    .about-text { font-size: 14px; line-height: 1.8; color: var(--mid); }
     .about-text a { border-bottom: 0.5px solid var(--lighter); padding-bottom: 1px; }
     .about-text a:hover { border-color: var(--black); }
-    .about-contact { font-family: var(--mono); font-size: 12px; color: var(--mid); line-height: 1.9; }
+    .about-contact { font-family: var(--mono); font-size: 14px; color: var(--mid); line-height: 1.9; }
 
     /* ── CV ── */
     .cv-desc { font-family: var(--mono); font-size: 12px; color: var(--light); margin-bottom: 16px; }
@@ -596,8 +597,7 @@
     qs('about-content').innerHTML = [
       '<div class="about-block"><div class="about-label">background</div><div class="about-text">' + SITE.about.background + '</div></div>',
       '<div class="about-block"><div class="about-label">interests</div><div class="about-text">' + SITE.about.interests + '</div></div>',
-      '<div class="about-block"><div class="about-label">contact</div><div class="about-contact"><a href="mailto:' + SITE.email + '">' + SITE.email + '</a><br>' + SITE.office + '</div></div>',
-      SITE.about.note ? '<div class="about-block"><div class="about-text" style="color:#bbb;font-size:13px;">' + SITE.about.note + '</div></div>' : '',
+      '<div class="about-block"><div class="about-label">contact</div><div class="about-text" style="color:#bbb;font-size:13px;">' + SITE.about.note + '</div><div class="about-contact"><a href="mailto:' + SITE.email + '">' + SITE.email + '</a><br>' + SITE.office + '</div></div>',: '',
     ].join('');
 
     // ── Gallery ──
