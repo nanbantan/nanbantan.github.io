@@ -635,9 +635,7 @@
         SITE.gallery.map(function(g) {
           return [
             '<div class="gallery-item">',
-            '  <a href="' + g.src + '" target="_blank">',
             '    <img src="' + g.src + '" alt="' + (g.caption || '') + '" loading="lazy">',
-            '  </a>',
             g.caption ? '<div class="gallery-caption">' + g.caption + '</div>' : '',
             '</div>',
           ].join('');
