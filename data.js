@@ -15,6 +15,7 @@ const SITE = {
   email: "nbanerje@nd.edu",
   scholar: "https://scholar.google.com/citations?user=qPRoaFsAAAAJ&hl=en",
   github: "https://github.com/nanbantan",
+  linkedin: "https://www.linkedin.com/in/nandban/",
   cv: "assets/cv.pdf",
   university: "University of Notre Dame",
   department: "Computer Science & Engineering",
