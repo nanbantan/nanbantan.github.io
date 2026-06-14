@@ -31,8 +31,8 @@ const SITE = {
   // About page
   // --------------------------------------------------------------------------
   about: {
-    background: `PhD student in Computer Science & Engineering at University of Notre Dame. Advised by <a href="https://ringzlab.com/">Prof. Diego Gomez-Zara</a>.`,
-    interests: `Science of science, network science, computational social science, bibliometrics, generative AI.`,
+    background: `PhD student in Computer Science & Engineering at University of Notre Dame. Advised by <a href="https://ringzlab.com/">Prof. Diego Gomez-Zara</a>.<br>Worked as a full-stack developer for 2 years at TCS.`,
+    interests: `Science of science, network science, computational social science, bibliometrics, generative AI usage.`,
     note: `Feel free to reach out about research, collaboration, or anything else.`,
   },
 
@@ -183,7 +183,7 @@ const SITE = {
       url: null,
     },
     {
-      year: 2026,
+      year: 2024,
       title: "All-Female Teams Produce More Disruptive Work: Evidence from Scientific Paper",
       venue: "ICSSI 2024",
       location: "Washington, DC",
