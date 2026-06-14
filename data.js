@@ -184,7 +184,11 @@ const SITE = {
     { src: "assets/gallery/F9C1E753-2D67-4FE3-8229-5D9CF0A790AD.JPG", caption: "" },
     { src: "assets/gallery/IMG_0046.PNG", caption: "" },
     { src: "assets/gallery/IMG_0075.PNG", caption: "" },
-    { src: "assets/gallery/IMG_0078.JPG", caption: "" },
+    { src: "assets/gallery/IMG_0122.PNG", caption: "" },
+    { src: "assets/gallery/IMG_0119.PNG", caption: "" },
+    { src: "assets/gallery/IMG_0110.PNG", caption: "" },
+    { src: "assets/gallery/IMG_0079.JPG", caption: "" },
+    { src: "assets/gallery/IMG_0034.PNG", caption: "" },    
   ],
 
   // --------------------------------------------------------------------------
