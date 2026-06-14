@@ -41,21 +41,21 @@ const SITE = {
   research: [
     {
       title: "Disruption & researcher demographics",
-      desc: "Examining how gender, career stage, and institutional prestige relate to a researcher's likelihood of producing disruptive work.",
+      desc: "Examining how gender relates to a researcher's likelihood of producing disruptive work.",
       status: "in-progress",
       link: null,
       linkLabel: null,
     },   
     {
       title: "Subfield adoption & diffusion",
-      desc: "Modeling how new research subfields spread through co-authorship networks using epidemic-style diffusion models.",
+      desc: "Modeling how new research subfields spread through co-authorship networks.",
       status: "in-progress",
       link: null,
       linkLabel: null,
     },    
     {
       title: "Gen AI & social science",
-      desc: "Characterizing how LLMs are influencing research practices, citations, and output in the social sciences.",
+      desc: "Characterizing how LLMs are influencing research practices and output in the social sciences.",
       status: "done",
       link: "#",
       // linkLabel: "preprint ↗",
@@ -63,7 +63,7 @@ const SITE = {
     },
      {
       title: "Disruption prediction",
-      desc: "Forecasting CD index disruption scores from citation network structure and text embeddings before a paper accumulates citations.",
+      desc: "Forecasting disruption scores from citation network structure and text embeddings before a paper accumulates citations.",
       status: "in-progress",
       link: null,
       // linkLabel: "preprint ↗",
