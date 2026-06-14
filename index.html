@@ -85,7 +85,7 @@
 
     .header-meta {
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 13px;
       color: var(--light);
       letter-spacing: 0.02em;
     }
@@ -357,7 +357,7 @@
       margin-left: var(--sidebar-width);
       padding: 16px 60px;
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 13px;
       color: var(--light);
       display: flex;
       justify-content: space-between;
@@ -539,6 +539,7 @@
       { label: 'email',   href: 'mailto:' + SITE.email },
       { label: 'scholar', href: SITE.scholar },
       { label: 'github',  href: SITE.github },
+      { label: 'linkedin',  href: SITE.linkedin },
     ].map(function(l) {
       return '<a class="home-link" href="' + l.href + '" target="_blank">' + l.label + '</a>';
     }).join('');
