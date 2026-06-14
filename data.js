@@ -80,7 +80,7 @@ const SITE = {
       year: 2025,
       title: "Simulating Teams with LLM Agents: Interactive 2D Environments for Studying Human-AI Dynamics",
       authors: "Almutairi, M., Chiang, C., Guo, H., Belcher, M., **Banerjee, N.**, Milkowski, M., Volkova, S., Nguyen, D., Weninger, T., Yankoski, M., Ford, T. W., & Gomez-Zara, D.",
-      venue: "",
+      venue: "arXiv preprint",
       url: "https://doi.org/10.48550/arXiv.2510.08242",
       type: "preprint",
     },
