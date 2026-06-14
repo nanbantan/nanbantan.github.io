@@ -239,7 +239,7 @@
     }
     .pub-title a:hover { text-decoration: underline; }
     .pub-authors { font-size: 15px; color: var(--mid); margin-bottom: 2px; line-height: 1.5; }
-    .pub-venue { font-size: 15px; color: var(--light); font-style: italic; }
+    .pub-venue { font-size: 15px; color: var(--light);}
     .pub-type {
       font-family: var(--mono);
       font-size: 12px;
@@ -513,7 +513,11 @@
     qs('footer-right').textContent = SITE.university.toLowerCase();
 
     // ── Build nav from data ──
-    var allPages = ['home'].concat(SITE.nav.map(function(n){ return n.id; }));
+    var allPages = ['home'].concat(SITE.nav.reduce(function(acc, n) {
+      acc.push(n.id);
+      if (n.children) n.children.forEach(function(c){ acc.push(c.id); });
+      return acc;
+    }, []));
     var navEl = qs('site-nav');
     navEl.innerHTML = SITE.nav.map(function(item) {
       var children = item.children ? item.children.map(function(child) {
