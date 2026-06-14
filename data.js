@@ -173,6 +173,22 @@ const SITE = {
       date: "June 2026",
       url: null,
     },
+    {
+      year: 2024,
+      title: "All-Female Teams Produce More Disruptive Work: Evidence from Scientific Paper",
+      venue: "IC2S2 2024",
+      location: "Philadelphia, PA",
+      date: "July 2024",
+      url: null,
+    },
+    {
+      year: 2026,
+      title: "All-Female Teams Produce More Disruptive Work: Evidence from Scientific Paper",
+      venue: "ICSSI 2024",
+      location: "Washington, DC",
+      date: "June 2024",
+      url: null,
+    },
   ],
 
   // --------------------------------------------------------------------------
