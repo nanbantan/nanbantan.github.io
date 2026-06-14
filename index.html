@@ -503,9 +503,9 @@
 
     // ── Header & footer ──
     qs('site-name').textContent   = SITE.name;
-    qs('header-meta').textContent = yearLabel + ' · ' + SITE.department.toLowerCase();
+    qs('header-meta').textContent = yearLabel + ' · ' + SITE.department.toLowerCase()  + ' · ' + SITE.university.toLowerCase();
     qs('footer-left').textContent = '© ' + new Date().getFullYear() + ' ' + SITE.name.toLowerCase();
-    qs('footer-right').textContent = SITE.university.toLowerCase();
+    qs('footer-right').textContent = 'all icons are hand-drawn (●ˇ∀ˇ●)';
 
     // ── Build nav from data ──
     var allPages = ['home'].concat(SITE.nav.reduce(function(acc, n) {
