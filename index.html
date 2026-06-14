@@ -74,7 +74,7 @@
 
     .header-name {
       font-family: var(--mono);
-      font-size: 17px;
+      font-size: 20px;
       font-weight: 500;
       color: var(--black);
       cursor: pointer;
@@ -202,7 +202,7 @@
     .home-links { display: flex; gap: 20px; flex-wrap: wrap; }
     .home-link {
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 13px;
       color: var(--mid);
       letter-spacing: 0.03em;
       border-bottom: 0.5px solid var(--lighter);
@@ -220,7 +220,7 @@
     }
     .year-label {
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 14px;
       color: var(--light);
       letter-spacing: 0.06em;
       white-space: nowrap;
@@ -238,11 +238,11 @@
       line-height: 1.5;
     }
     .pub-title a:hover { text-decoration: underline; }
-    .pub-authors { font-size: 14px; color: var(--mid); margin-bottom: 2px; line-height: 1.5; }
-    .pub-venue { font-size: 14px; color: var(--light); font-style: italic; }
+    .pub-authors { font-size: 15px; color: var(--mid); margin-bottom: 2px; line-height: 1.5; }
+    .pub-venue { font-size: 15px; color: var(--light); font-style: italic; }
     .pub-type {
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 12px;
       color: var(--light);
       border: 0.5px solid var(--lighter);
       border-radius: 99px;
@@ -262,11 +262,11 @@
       align-items: start;
     }
     .teach-course { font-size: 15px; font-weight: 500; color: var(--black); margin-bottom: 3px; }
-    .teach-role { font-size: 14px; color: var(--mid); }
-    .teach-details { font-size: 14px; color: var(--light); margin-top: 2px; }
+    .teach-role { font-size: 15px; color: var(--mid); }
+    .teach-details { font-size: 15px; color: var(--light); margin-top: 2px; }
     .teach-sem {
       font-family: var(--mono);
-      font-size: 12px;
+      font-size: 13px;
       color: var(--light);
       white-space: nowrap;
       padding-top: 2px;
@@ -278,7 +278,7 @@
     .research-dot { width: 6px; height: 6px; border-radius: 50%; background: #ddd; flex-shrink: 0; }
     .research-dot.done { background: #999; }
     .research-title { font-size: 13px; font-weight: 500; color: var(--black); }
-    .research-desc { font-size: 14px; color: var(--mid); line-height: 1.7; padding-left: 14px; }
+    .research-desc { font-size: 15px; color: var(--mid); line-height: 1.7; padding-left: 14px; }
     .research-link {
       font-family: var(--mono);
       font-size: 11px;
@@ -294,7 +294,7 @@
     /* ── Presentations ── */
     .talk-entry { padding: 11px 0; max-width: 100%; }
     .talk-title { font-size: 13px; font-weight: 500; color: var(--black); margin-bottom: 3px; line-height: 1.5; }
-    .talk-meta { font-family: var(--mono); font-size: 14px; color: var(--light); }
+    .talk-meta { font-size: 14px; color: var(--light); }
 
     /* ── About ── */
     .about-block { margin-bottom: 32px; max-width: 100%; }
@@ -306,16 +306,16 @@
       color: var(--black);
       margin-bottom: 8px;
     }
-    .about-text { font-size: 14px; line-height: 1.8; color: var(--mid); }
+    .about-text { font-size: 15px; line-height: 1.8; color: var(--mid); }
     .about-text a { border-bottom: 0.5px solid var(--lighter); padding-bottom: 1px; }
     .about-text a:hover { border-color: var(--black); }
     .about-contact { font-family: var(--mono); font-size: 14px; color: var(--mid); line-height: 1.9; }
 
     /* ── CV ── */
-    .cv-desc { font-family: var(--mono); font-size: 12px; color: var(--light); margin-bottom: 16px; }
+    .cv-desc { font-family: var(--mono); font-size: 14px; color: var(--light); margin-bottom: 16px; }
     .cv-download {
       font-family: var(--mono);
-      font-size: 13px;
+      font-size: 15px;
       color: var(--black);
       border-bottom: 0.5px solid var(--black);
       padding-bottom: 1px;
@@ -620,7 +620,7 @@
       '<div class="about-block"><div class="about-label">background</div><div class="about-text">' + SITE.about.background + '</div></div>',
       '<div class="about-block"><div class="about-label">interests</div><div class="about-text">' + SITE.about.interests + '</div></div>',
       '<div class="about-block"><div class="about-label">contact</div>' +
-      '<div class="about-text" style="color:#aaa;font-size:13px;margin-bottom:8px;">' + (SITE.about.note || '') + '</div>' +
+      '<div class="about-text" style="margin-bottom:8px;">' + (SITE.about.note || '') + '</div>' +
       '<div class="about-contact"><a href="mailto:' + SITE.email + '">' + SITE.email + '</a></div></div>',
     ].join('');
 
