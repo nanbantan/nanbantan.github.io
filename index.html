@@ -277,7 +277,9 @@
     .research-entry { padding: 13px 0; max-width: 800px; }
     .research-header { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
     .research-dot { width: 6px; height: 6px; border-radius: 50%; background: #ddd; flex-shrink: 0; }
-    .research-dot.done { background: #999; }
+    .research-dot.in-progress { background: #f9c74f; }
+    .research-dot.almost-done { background: #f8961e; }
+    .research-dot.done { background: #43aa8b; }
     .research-title { font-size: 13px; font-weight: 500; color: var(--black); }
     .research-desc { font-size: 15px; color: var(--mid); line-height: 1.7; padding-left: 14px; }
     .research-link {
@@ -291,6 +293,16 @@
       transition: color 0.1s, border-color 0.1s;
     }
     .research-link:hover { color: var(--black); border-color: var(--black); }
+    .research-status {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--light);
+      border: 0.5px solid var(--lighter);
+      border-radius: 99px;
+      padding: 1px 7px;
+      margin-left: auto;
+      white-space: nowrap;
+    }
 
     /* ── Presentations ── */
     .talk-entry { padding: 11px 0; max-width: 100%; }
@@ -556,10 +568,11 @@
         : '';
       return [
         '<div class="research-entry">',
-        '  <div class="research-header">',
-        '    <div class="' + dotClass + '"></div>',
-        '    <div class="research-title">' + r.title + '</div>',
-        '  </div>',
+        '<div class="research-header">',
+        '  <div class="' + dotClass + '"></div>',
+        '  <div class="research-title">' + r.title + '</div>',
+        '  <span class="research-status">' + (r.status || '') + '</span>',
+        '</div>',
         '  <div class="research-desc">' + r.desc + ' ' + linkHtml + '</div>',
         '</div>',
       ].join('');
