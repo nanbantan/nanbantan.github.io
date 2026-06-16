@@ -224,7 +224,7 @@ const SITE = {
   ],
 
   news: [
-    {
+  {
     date: "July 2026",
     text: "Oral Candidacy Exam.",
     url: null, // optional link
