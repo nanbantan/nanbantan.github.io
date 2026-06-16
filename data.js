@@ -31,8 +31,8 @@ const SITE = {
   // About page
   // --------------------------------------------------------------------------
   about: {
-    background: `PhD student in Computer Science & Engineering at University of Notre Dame. Advised by <a href="https://ringzlab.com/">Prof. Diego Gomez-Zara</a>.<br>Worked as a full-stack developer for 2 years at TCS.`,
-    interests: `Science of science, network science, computational social science, bibliometrics, generative AI usage.`,
+    background: `PhD student in Computer Science & Engineering at University of Notre Dame. Advised by <a target="_blank" rel="noopener noreferrer" href="https://ringzlab.com/">Prof. Diego Gomez-Zara</a>.<br>Worked as a full-stack web developer for 2 years at TCS.`,
+    interests: `Science of science, network science, computational social science, bibliometrics, generative AI usage.<br> Also, crosswords and sketching.`,
     note: `Feel free to reach out about research, collaboration, or anything else.`,
   },
 
