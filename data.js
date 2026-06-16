@@ -43,7 +43,7 @@ const SITE = {
     {
       title: "Disruption & researcher demographics",
       desc: "Examining how gender relates to a researcher's likelihood of producing disruptive work.",
-      status: "in-progress",
+      status: "almost-done",
       link: null,
       linkLabel: null,
     },   
@@ -57,7 +57,7 @@ const SITE = {
     {
       title: "Gen AI & social science",
       desc: "Characterizing how LLMs are influencing research practices and output in the social sciences.",
-      status: "done",
+      status: "in-progress",
       link: "#",
       // linkLabel: "preprint ↗",
       linkLabel: null,
