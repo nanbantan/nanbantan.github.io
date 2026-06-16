@@ -224,6 +224,11 @@ const SITE = {
   ],
 
   news: [
+    {
+    date: "July 2026",
+    text: "Oral Candidacy Exam.",
+    url: null, // optional link
+  },
   {
     date: "July 2026",
     text: "Presenting at ICSSI 2026, Boulder, CO.",
@@ -234,11 +239,6 @@ const SITE = {
     text: "Presented at NetSci 2026, Boston, MA.",
     url: null, // optional link
   },
-  // {
-  //   date: "Jan 2026",
-  //   text: "Dissertation committee finalized.",
-  //   url: null,
-  // },
 ],
 
 };
