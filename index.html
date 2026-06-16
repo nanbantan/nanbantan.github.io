@@ -300,7 +300,6 @@
       border: 0.5px solid var(--lighter);
       border-radius: 99px;
       padding: 1px 7px;
-      margin-left: auto;
       white-space: nowrap;
     }
 
@@ -410,6 +409,54 @@
       font-weight: 400;
       font-size: 18px;
     }
+    .news-block {
+      margin-top: 40px;
+      max-width: 600px;
+    }
+    
+    .news-entry {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 16px;
+      padding: 8px 0;
+      border-bottom: 0.5px solid var(--lighter);
+      align-items: baseline;
+    }
+    
+    .news-entry:last-child {
+      border-bottom: none;
+    }
+    
+    .news-date {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--light);
+      white-space: nowrap;
+    }
+    
+    .news-text {
+      font-size: 13px;
+      color: #444;
+      line-height: 1.6;
+    }
+    
+    .news-text a {
+      border-bottom: 0.5px solid var(--lighter);
+      padding-bottom: 1px;
+      transition: border-color 0.1s;
+    }
+    
+    .news-text a:hover {
+      border-color: var(--black);
+    }
+    .news-header {
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--light);
+      margin-bottom: 14px;
+    }
   </style>
 </head>
 <body>
@@ -434,6 +481,7 @@
         <!-- <div class="home-title" id="home-title"></div> -->
         <div class="home-bio"   id="home-bio"></div>
         <div class="home-links" id="home-links"></div>
+        <div id="home-news"></div>
       </div>
 
       <!-- Research -->
@@ -556,6 +604,24 @@
     ].map(function(l) {
       return '<a class="home-link" href="' + l.href + '" target="_blank">' + l.label + '</a>';
     }).join('');
+    if (SITE.news && SITE.news.length > 0) {
+      qs('home-news').innerHTML = [
+        '<div class="news-block">',
+        '<div class="news-header">news</div>',
+        SITE.news.map(function(n) {
+          var textHtml = n.url
+            ? '<a href="' + n.url + '" target="_blank">' + n.text + '</a>'
+            : n.text;
+          return [
+            '<div class="news-entry">',
+            '  <span class="news-date">' + n.date + '</span>',
+            '  <span class="news-text">' + textHtml + '</span>',
+            '</div>',
+          ].join('');
+        }).join(''),
+        '</div>',
+      ].join('');
+    }
 
     // ── CV ──
     qs('cv-link').href = SITE.cv;
