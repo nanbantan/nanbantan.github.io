@@ -558,7 +558,10 @@
     }
 
     // ── PhD year ──
-    var diff = new Date().getFullYear() - SITE.phdYear + 1;
+    var now = new Date();
+    var year = now.getFullYear();
+    var month = now.getMonth(); // 0-indexed, so July = 6, August = 7
+    var diff = (month >= 7 ? year : year - 1) - SITE.phdYear + 1;
     var ords = ['1st','2nd','3rd','4th','5th','6th','7th'];
     var yearLabel = (ords[diff-1] || diff+'th') + '-year phd student';
 
