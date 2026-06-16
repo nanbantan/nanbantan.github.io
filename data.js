@@ -223,4 +223,22 @@ const SITE = {
     ]},
   ],
 
+  news: [
+  {
+    date: "July 2026",
+    text: "Presenting at ICSSI 2026, Boulder, CO.",
+    url: null, // optional link
+  },
+  {
+    date: "June 2026",
+    text: "Presented at NetSci 2026, Boston, MA.",
+    url: null, // optional link
+  },
+  // {
+  //   date: "Jan 2026",
+  //   text: "Dissertation committee finalized.",
+  //   url: null,
+  // },
+],
+
 };
