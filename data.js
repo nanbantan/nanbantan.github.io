@@ -31,7 +31,7 @@ const SITE = {
   // About page
   // --------------------------------------------------------------------------
   about: {
-    background: `PhD student in Computer Science & Engineering at University of Notre Dame. Advised by <a target="_blank" rel="noopener noreferrer" href="https://ringzlab.com/">Prof. Diego Gomez-Zara</a>.<br>Worked as a full-stack web developer for 2 years at TCS.`,
+    background: `PhD Candidate in Computer Science & Engineering at the University of Notre Dame. Advised by <a target="_blank" rel="noopener noreferrer" href="https://ringzlab.com/">Prof. Diego Gomez-Zara</a>.<br>Worked as a full-stack web developer for 2 years at TCS.`,
     interests: `Science of science, network science, computational social science, bibliometrics, generative AI usage.<br> Also, crosswords and sketching.`,
     note: `Feel free to reach out about research, collaboration, or anything else.`,
   },
@@ -226,12 +226,12 @@ const SITE = {
   news: [
   {
     date: "July 2026",
-    text: "Oral Candidacy Exam.",
+    text: "Passed Oral Candidacy Exam.",
     url: null, // optional link
   },
   {
     date: "July 2026",
-    text: "Presenting at ICSSI 2026, Boulder, CO.",
+    text: "Presented at ICSSI 2026, Boulder, CO.",
     url: null, // optional link
   },
   {
